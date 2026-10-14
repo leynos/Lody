@@ -1,0 +1,66 @@
+{
+  "bundleSha256": "4ff1d5c5dc9e0cd31f7c46535b609588f0ce3c01e65161b4500469ed915866b9",
+  "scope": "Extracted installed legacy SDK methods; synthetic inputs; no network or real timers",
+  "queue": {
+    "verdict": "reproduced",
+    "starvation": {
+      "sends": 100,
+      "machineSends": 0,
+      "pendingLogical": 103,
+      "liveChains": 3,
+      "physicalLiveEntries": 3,
+      "barrierComplete": false,
+      "barrierStillPending": true
+    },
+    "noRefresh": {
+      "sends": 100,
+      "machineSends": 1,
+      "pendingLogical": 2,
+      "liveChains": 2,
+      "physicalLiveEntries": 2,
+      "barrierComplete": true,
+      "barrierStillPending": false
+    },
+    "fifoControl": {
+      "sends": 100,
+      "machineSends": 33,
+      "pendingLogical": 4,
+      "liveChains": 3,
+      "physicalLiveEntries": 3,
+      "barrierComplete": true,
+      "barrierStillPending": false
+    }
+  },
+  "responseBody": {
+    "verdict": "reproduced",
+    "stalledBody": {
+      "status": 502,
+      "timersAfterHeaders": 0,
+      "requestAborted": false,
+      "settled": false,
+      "deadlineReached": false
+    },
+    "finiteBody": {
+      "status": 502,
+      "timersAfterHeaders": 0,
+      "requestAborted": false,
+      "settled": true,
+      "deadlineReached": false
+    },
+    "success": {
+      "status": 204,
+      "timersAfterHeaders": 0,
+      "requestAborted": false,
+      "settled": true,
+      "deadlineReached": false
+    },
+    "deadlineControl": {
+      "status": 502,
+      "timersAfterHeaders": 0,
+      "requestAborted": false,
+      "settled": true,
+      "deadlineReached": true
+    }
+  },
+  "limits": "Mechanism evidence only. Neither result proves the production incident; current native Effect SDK requires a separate adapter."
+}
