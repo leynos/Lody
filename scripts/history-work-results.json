@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "experiment": "history-work-scaling",
+  "sourceHashes": {
+    "packages/shared/src/acp/history-apply.ts": "14ed8050906dbce223e8abeb9a2623f58eaeda0279bb6451daeeaa83a2bb338b",
+    "packages/shared/src/history-writer.ts": "2d88a97823d633df955c9f43911035b466edc880f66c2dfe589fb18109605f6f",
+    "apps/cli/src/lib/loro/session-agent-writes.ts": "cd38733b4639b36eb9ae17bff92b09a522a5388da5cea2ef2b21896f7443ea01"
+  },
+  "scans": [
+    {
+      "turns": 16,
+      "itemsPerTurn": 8,
+      "events": 1,
+      "inspectedItems": 128,
+      "indexedLookups": 1
+    },
+    {
+      "turns": 256,
+      "itemsPerTurn": 8,
+      "events": 1,
+      "inspectedItems": 2048,
+      "indexedLookups": 1
+    },
+    {
+      "turns": 256,
+      "itemsPerTurn": 8,
+      "events": 32,
+      "inspectedItems": 65536,
+      "indexedLookups": 32
+    }
+  ],
+  "routes": [
+    {
+      "sessionUpdate": "subagent_event",
+      "turns": 16,
+      "batches": 32,
+      "wholeWrites": 32,
+      "wholeReads": 32,
+      "exportedTurns": 512,
+      "targetedWrites": 0
+    },
+    {
+      "sessionUpdate": "subagent_event",
+      "turns": 256,
+      "batches": 32,
+      "wholeWrites": 32,
+      "wholeReads": 32,
+      "exportedTurns": 8192,
+      "targetedWrites": 0
+    },
+    {
+      "sessionUpdate": "agent_message_chunk",
+      "turns": 256,
+      "batches": 32,
+      "wholeWrites": 0,
+      "wholeReads": 0,
+      "exportedTurns": 0,
+      "targetedWrites": 32
+    }
+  ],
+  "verdict": "reproduced: whole-history fallback and repeated linear child lookup",
+  "limits": [
+    "Operation counts only; no WASM, Immer, SQLite or wall-clock performance measurement.",
+    "Routing and lookup are separate boundary experiments, not an end-to-end ACP replay.",
+    "No proof of a production timeout, deadlock or presence outage."
+  ]
+}
