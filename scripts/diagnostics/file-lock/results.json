@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "experiment": "file-lock-boundaries",
+  "sourceHashes": {
+    "packages/shared/src/node/file-lock.ts": "56025b507296404684e93ed221e1fed0d9649efccffc19fc7d5d7b0c81deddbd"
+  },
+  "effectVersion": "4.0.2",
+  "queue": {
+    "acquisitionTimeoutMs": 120000,
+    "virtualQueuedMs": 600000,
+    "pendingAtDeadline": true,
+    "order": ["independent", "holder", "waiter"],
+    "drained": true
+  },
+  "cleanup": {
+    "bodyCompleted": true,
+    "cleanupDeadlineMs": 5000,
+    "failure": "LockReleaseFailed",
+    "ownershipRetainedAtTimeout": true,
+    "recovered": true
+  },
+  "immediateCleanup": {
+    "result": "ok",
+    "remainingFiles": 0
+  },
+  "verdict": "reproduced: queue timeout scope and bounded cleanup failure; not a circular deadlock",
+  "limits": [
+    "Both behaviours are already intentional and covered by upstream lock tests.",
+    "A gated synthetic unlink is not proof that CPU starvation caused the production failure.",
+    "No live lock, daemon, filesystem, PID, cloud transport or conversation was accessed."
+  ]
+}
