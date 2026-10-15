@@ -2,6 +2,7 @@
 
 Status: implemented
 Translation: current
+PR: [#2](https://github.com/leynos/Lody/pull/2)
 
 [English](2026-10-15-file-lock-boundary-harness.md)
 
