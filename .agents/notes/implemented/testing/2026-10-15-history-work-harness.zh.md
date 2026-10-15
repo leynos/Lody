@@ -2,6 +2,7 @@
 
 Status: implemented
 Translation: current
+PR: [#1](https://github.com/leynos/Lody/pull/1)
 
 [English](2026-10-15-history-work-harness.md)
 
