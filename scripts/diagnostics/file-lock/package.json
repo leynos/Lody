@@ -1,0 +1,11 @@
+{
+  "name": "lody-file-lock-diagnostic",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "probe": "node --experimental-vm-modules probe.mjs"
+  },
+  "dependencies": {
+    "effect": "4.0.2"
+  }
+}
